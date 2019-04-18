@@ -12,6 +12,7 @@ class TreeNode(object):
 
     @staticmethod
     def from_list(values):
+        # type: (object) -> object
         if len(values) == 0:
             return None
 
