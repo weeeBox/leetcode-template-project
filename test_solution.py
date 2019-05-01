@@ -4,7 +4,7 @@ from unittest import TestCase
 from list_node import ListNode
 from tree_node import TreeNode
 from tree_link_node import TreeLinkNode
-from Interval import Interval
+from interval import Interval
 
 from solution import Solution
 
