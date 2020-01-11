@@ -18,6 +18,26 @@ class TreeLinkNode:
         )
 
     @staticmethod
+    def from_dict(data, lookup=None):
+        if not data:
+            return None
+
+        def get_value(key):
+            nonlocal data
+            value = data[key]
+            return value if value != 'null' else None
+
+        if not lookup:
+            lookup = {}
+
+        root = lookup.get(data['$id'], TreeLinkNode(get_value('val')))
+        root.left = TreeLinkNode.from_dict(get_value('left'), lookup)
+        root.right = TreeLinkNode.from_dict(get_value('right'), lookup)
+        root.next = TreeLinkNode.from_dict(get_value('next'), lookup)
+
+        return root
+
+    @staticmethod
     def from_list(values):
         if len(values) == 0:
             return None
