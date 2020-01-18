@@ -17,6 +17,7 @@ class TreeNode(object):
     def __eq__(self, other):
         def eq(a: TreeNode, b: TreeNode) -> bool:
             return not a and not b or a and b and a.val == b.val and eq(a.left, b.left) and eq(a.right, b.right)
+        return eq(self, other)
 
     def find(self, val):
         queue = [self]
